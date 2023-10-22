@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "panel_generator/version"
+require_relative 'panel_generator/version'
 
 module PanelGenerator
   class Error < StandardError; end
