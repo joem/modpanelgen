@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require_relative 'panel_generator/version'
+require_relative 'modular_panel_gen/version'
 
-module PanelGenerator
+module ModularPanelGen
   class Error < StandardError; end
   # Your code goes here...
 end

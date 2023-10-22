@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class TestPanelGenerator < Minitest::Test
+class TestModularPanelGen < Minitest::Test
   def test_that_it_has_a_version_number
-    refute_nil ::PanelGenerator::VERSION
+    refute_nil ::ModularPanelGen::VERSION
   end
 
   def test_it_does_something_useful

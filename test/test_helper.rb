@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 $LOAD_PATH.unshift File.expand_path('../lib', __dir__)
-require 'panel_generator'
+require 'modular_panel_gen'
 
 require 'minitest/autorun'
 require 'minitest/autorun'

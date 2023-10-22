@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/panel_generator/version'
+require_relative 'lib/modular_panel_gen/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'panel_generator'
-  spec.version = PanelGenerator::VERSION
+  spec.name = 'modular_panel_gen'
+  spec.version = ModularPanelGen::VERSION
   spec.authors = ['Joe Miragliuolo']
   spec.email = ['sod@llawn.com']
 
