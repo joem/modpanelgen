@@ -1,8 +1,10 @@
 # ModularPanelGen
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/modular_panel_gen`. To experiment with that code, run `bin/console` for an interactive prompt.
+**NOTE: This is currently a work in progress. Not finished yet. Sorry.**
 
-TODO: Delete this and the text above, and describe your gem
+This library lets you generate panels for synthesizer modules. It can be used either via the command line or via the library for integration into something else. You can generate blank panels by specifying a size, but the more interesting use is automatically generating panels (with holes) based on input KiCad PCB files.
+
+It was primarily designed to automatically generate KiCad PCB eurorack-format panels based a KiCad PCB input file, since I didn't want to risk getting my measurements wrong when making my front panel.But I'm going to add as many built-in panel formats as possible (such as the 1U formats, the 4U formats, etc) and it can take arbitrary sizes too. Currently it's only able to output KiCad PCB files, but I'd like to add other useful outputs too, like PDF drill guides and lasercutter outputs.
 
 ## Installation
 
@@ -14,7 +16,11 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
     $ gem install modular_panel_gen
 
-## Usage
+## Command Line Usage
+
+TODO: Write usage instructions here
+
+## Library Usage
 
 TODO: Write usage instructions here
 
@@ -26,7 +32,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/modular_panel_gen
+Bug reports and pull requests are welcome on GitHub at https://github.com/joem/modular_panel_gen
 
 ## License
 

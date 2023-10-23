@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ['Joe Miragliuolo']
   spec.email = ['sod@llawn.com']
 
-  spec.summary = 'Generate panels for synthesizer modules from the command line'
-  spec.description = 'Generate panels for synthesizer modules from the command line, with optional automatic generation based on a KiCad PCB file.'
+  spec.summary = 'Generate panels for synthesizer modules'
+  spec.description = 'Generate panels for synthesizer modules, via library or command line, with optional automatic generation based on a KiCad PCB file.'
   spec.homepage = 'https://github.com/joem/modular_panel_gen'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
