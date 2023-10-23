@@ -2,9 +2,11 @@
 
 **NOTE: This is currently a work in progress. Not finished yet. Sorry.**
 
-This library lets you generate panels for synthesizer modules. It can be used either via the command line or via the library for integration into something else. You can generate blank panels by specifying a size, but the more interesting use is automatically generating panels (with holes) based on input KiCad PCB files.
+This library lets you generate panels for synthesizer modules.
 
-It was primarily designed to automatically generate KiCad PCB eurorack-format panels based a KiCad PCB input file, since I didn't want to risk getting my measurements wrong when making my front panel.But I'm going to add as many built-in panel formats as possible (such as the 1U formats, the 4U formats, etc) and it can take arbitrary sizes too. Currently it's only able to output KiCad PCB files, but I'd like to add other useful outputs too, like PDF drill guides and lasercutter outputs.
+It can be used either via the command line or via the library for integration into something else. You can generate blank panels by specifying a size, but the more interesting use is automatically generating panels (with holes) based on input KiCad PCB files.
+
+This library was primarily designed to automatically generate KiCad PCB eurorack-format panels based a KiCad PCB input file, since I didn't want to risk getting my measurements wrong when making my front panel.But I'm going to add as many built-in panel formats as possible (such as the 1U formats, the 4U formats, etc) and it can take arbitrary sizes too. Currently it's only able to output KiCad PCB files, but I'd like to add other useful outputs too, like PDF drill guides and lasercutter outputs.
 
 ## Installation
 
