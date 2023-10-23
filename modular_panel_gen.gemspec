@@ -9,7 +9,10 @@ Gem::Specification.new do |spec|
   spec.email = ['sod@llawn.com']
 
   spec.summary = 'Generate panels for synthesizer modules'
-  spec.description = 'Generate panels for synthesizer modules, via library or command line, with optional automatic generation based on a KiCad PCB file.'
+  spec.description = <<~DESCRIPTION
+    Generate panels for synthesizer modules, via library or command line,
+    with optional automatic generation based on a KiCad PCB file.
+  DESCRIPTION
   spec.homepage = 'https://github.com/joem/modular_panel_gen'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
@@ -35,9 +38,9 @@ Gem::Specification.new do |spec|
   # spec.add_dependency 'example-gem', '~> 1.0'
 
   spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'minitest-reporters'
+  spec.add_development_dependency 'rake'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
