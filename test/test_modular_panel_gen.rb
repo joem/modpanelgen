@@ -2,12 +2,13 @@
 
 require 'test_helper'
 
-class TestModularPanelGen < Minitest::Test
-  def test_that_it_has_a_version_number
-    refute_nil ::ModularPanelGen::VERSION
+describe ModularPanelGen do
+  it 'must have a version number' do
+    value(::ModularPanelGen::VERSION).wont_be_nil
   end
 
-  def test_it_does_something_useful
+  it 'must do something useful' do
     assert false
   end
 end
+

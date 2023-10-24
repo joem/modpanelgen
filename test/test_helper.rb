@@ -5,4 +5,8 @@ require 'modular_panel_gen'
 
 require 'minitest/autorun'
 require 'minitest/reporters'
+reporter_options = {
+  # detailed_skip: false,
+  color: true
+}
 Minitest::Reporters.use! Minitest::Reporters::DefaultReporter.new(reporter_options)
