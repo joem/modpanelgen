@@ -8,10 +8,13 @@ module ModularPanelGen
     end
 
     def run(argv)
-      if ARGV.empty?
-        ARGV << '--help'
+      if argv.empty?
+        argv << '--help'
       end
+      parse_args(argv)
+    end
 
+    def parse_args(argv)
       OptionParser.new do |opts|
         opts.banner = "Usage: modular_panel_gen.rb [options] [input_file]"
 
