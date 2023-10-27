@@ -7,8 +7,7 @@ describe ModularPanelGen do
     value(::ModularPanelGen::VERSION).wont_be_nil
   end
 
-  it 'must do something useful' do
-    assert false
-  end
+  # it 'must do something useful' do
+  #   assert false
+  # end
 end
-
