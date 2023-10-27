@@ -15,7 +15,7 @@ module ModularPanelGen
     end
 
     def parse_args(argv)
-      OptionParser.new do |opts|
+      options = OptionParser.new do |opts|
         opts.banner = "Usage: modular_panel_gen.rb [options] [input_file]"
 
         # opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
@@ -31,9 +31,16 @@ module ModularPanelGen
           puts "modular_panel_gen #{ModularPanelGen::VERSION}"
           exit
         end
-      end.parse!(argv)
+      end
+
+      # Catch cases on invalid options and remind the user what's valid
+      begin
+        options.parse!(argv)
+      rescue OptionParser::InvalidOption => e
+        puts e
+        puts options
+        exit 1
+      end
     end
   end
 end
-
-# ::ModularPanelGen::CLI.new.run(ARGV) #DEBUG
