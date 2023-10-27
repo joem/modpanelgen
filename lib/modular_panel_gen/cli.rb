@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'optparse'
 
 module ModularPanelGen
@@ -8,7 +9,7 @@ module ModularPanelGen
     end
 
     def run(argv)
-      if argv.empty?
+      if argv.empty? # rubocop:disable Style/IfUnlessModifier
         argv << '--help'
       end
       parse_args(argv)
@@ -16,13 +17,13 @@ module ModularPanelGen
 
     def parse_args(argv)
       @options_parser = OptionParser.new do |opts|
-        opts.banner = "Usage: modular_panel_gen.rb [options] [input_file]"
+        opts.banner = 'Usage: modular_panel_gen.rb [options] [input_file]'
 
-        # opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
+        # opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
         #   options[:verbose] = v
         # end
 
-        opts.on_tail("-h", "--help", "show this message") { show_help }
+        opts.on_tail('-h', '--help', 'show this message') { show_help }
         opts.on_tail('--version', 'print the version number, then exit') { show_version }
       end
       @options_parser.parse!(argv)

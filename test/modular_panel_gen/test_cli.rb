@@ -24,4 +24,3 @@ describe ModularPanelGen::CLI do
   #   # err.status.must_equal 42
   # end
 end
-
