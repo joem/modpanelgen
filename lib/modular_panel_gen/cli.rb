@@ -56,24 +56,29 @@ module ModularPanelGen
       options.on('--list-formats', 'List available formats') { list_formats }
       options.on('--list-parsers', 'List available parsers') { list_parsers }
       options.on('--list-renderers', 'List available renderers') { list_renderers }
-
-      options.on('--check-format FORMAT_FILE', 'Check format file') do |f|
-        # TODO: Check f somehow
-        exit
-      end
-
-      options.on('--check-parser PARSER_FILE', 'Check parser file') do |f|
-        # TODO: Check f somehow
-        exit
-      end
-
-      options.on('--check-renderer RENDERER_FILE', 'Check renderer file') do |f|
-        # TODO: Check f somehow
-        exit
-      end
-
+      options.on('--check-format FILE', 'Check a format file') { |f| check_format(f) }
+      options.on('--check-parser FILE', 'Check a parser file') { |f| check_parser(f) }
+      options.on('--check-renderer FILE', 'Check a renderer file') { |f| check_renderer(f) }
       options.on_tail('-h', '--help', 'Show this message') { show_help }
       options.on_tail('-v', '--version', 'Show the version number') { show_version }
+    end
+
+    def check_format(file)
+      puts 'Not implemented yet!' # FIXME
+      # TODO: Check file somehow
+      exit
+    end
+
+    def check_parser(file)
+      puts 'Not implemented yet!' # FIXME
+      # TODO: Check file somehow
+      exit
+    end
+
+    def check_renderer(file)
+      puts 'Not implemented yet!' # FIXME
+      # TODO: Check file somehow
+      exit
     end
 
     def list_formats
