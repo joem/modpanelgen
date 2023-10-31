@@ -10,6 +10,8 @@ This library was primarily designed to automatically generate KiCad PCB eurorack
 
 ## Installation
 
+**NOTE: These installation steps won't work just yet. I'm not pushing it to the rubygems server until I hit minimal functionality.**
+
 Install the gem and add to the application's Gemfile by executing:
 
     $ bundle add modpanelgen
