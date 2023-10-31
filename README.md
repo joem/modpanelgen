@@ -1,4 +1,4 @@
-# ModularPanelGen
+# Modpanelgen
 
 **NOTE: This is currently a work in progress. Not finished yet. Sorry.**
 
@@ -12,11 +12,11 @@ This library was primarily designed to automatically generate KiCad PCB eurorack
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add modular_panel_gen
+    $ bundle add modpanelgen
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install modular_panel_gen
+    $ gem install modpanelgen
 
 ## Command Line Usage
 
@@ -34,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/joem/modular_panel_gen
+Bug reports and pull requests are welcome on GitHub at https://github.com/joem/modpanelgen
 
 ## License
 

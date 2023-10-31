@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/modular_panel_gen/version'
+require_relative 'lib/modpanelgen/version'
 
 Gem::Specification.new do |spec|
-  spec.name = 'modular_panel_gen'
-  spec.version = ModularPanelGen::VERSION
+  spec.name = 'modpanelgen'
+  spec.version = Modpanelgen::VERSION
   spec.authors = ['Joe Miragliuolo']
   spec.email = ['sod@llawn.com']
 
@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
     Generate panels for synthesizer modules, via library or command line,
     with optional automatic generation based on a KiCad PCB file.
   DESCRIPTION
-  spec.homepage = 'https://github.com/joem/modular_panel_gen'
+  spec.homepage = 'https://github.com/joem/modpanelgen'
   spec.license = 'MIT'
   spec.required_ruby_version = '>= 2.6.0'
 

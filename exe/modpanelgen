@@ -2,6 +2,6 @@
 # frozen_string_literal: true
 
 # require 'bundler/setup'
-require 'modular_panel_gen'
+require 'modpanelgen'
 
-ModularPanelGen::CLI.new.run(ARGV)
+Modpanelgen::CLI.new.run(ARGV)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ModularPanelGen
+module Modpanelgen
   # The class that all renderer plugins inherit from.
   class RendererPlugin < BasePlugin
     # `self.inherited(klass)` and `self.descendants` come from Plugin

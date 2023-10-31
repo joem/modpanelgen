@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ModularPanelGen
+module Modpanelgen
   # This is the class that all plugins types must inherit
   class BasePlugin
     def self.inherited(klass)

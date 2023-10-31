@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module ModularPanelGen
+module Modpanelgen
   module Plugin
     module Format
       # What this does

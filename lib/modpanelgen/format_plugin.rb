@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-module ModularPanelGen
-  # The class that all parser plugins inherit from.
-  class ParserPlugin < BasePlugin
+module Modpanelgen
+  # The class that all format plugins inherit from.
+  class FormatPlugin < BasePlugin
     # `self.inherited(klass)` and `self.descendants` come from Plugin
 
     # # Plugins must define run (or whatever) in their own class.

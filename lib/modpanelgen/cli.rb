@@ -2,7 +2,7 @@
 
 require 'optparse'
 
-module ModularPanelGen
+module Modpanelgen
   # This class is called by the executable. It handles all command line
   # processing and sets the app in motion.
   class CLI
@@ -19,7 +19,7 @@ module ModularPanelGen
 
     def parse_args(argv)
       @options_parser = OptionParser.new do |opts|
-        opts.banner = 'Usage: modular_panel_gen.rb [options] [input_file]'
+        opts.banner = 'Usage: modpanelgen [options] [input_file]'
 
         # opts.on('-v', '--[no-]verbose', 'Run verbosely') do |v|
         #   options[:verbose] = v
@@ -83,19 +83,19 @@ module ModularPanelGen
 
     def list_formats
       puts 'Available formats:'
-      puts(ModularPanelGen::FormatPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts(Modpanelgen::FormatPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       exit
     end
 
     def list_parsers
       puts 'Available parsers:'
-      puts(ModularPanelGen::ParserPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts(Modpanelgen::ParserPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       exit
     end
 
     def list_renderers
       puts 'Available renderers:'
-      puts(ModularPanelGen::RendererPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts(Modpanelgen::RendererPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       exit
     end
 
@@ -105,7 +105,7 @@ module ModularPanelGen
     end
 
     def show_version
-      puts "modular_panel_gen #{ModularPanelGen::VERSION}"
+      puts "modpanelgen #{Modpanelgen::VERSION}"
       exit
     end
   end

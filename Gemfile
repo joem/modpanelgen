@@ -2,5 +2,5 @@
 
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in modular_panel_gen.gemspec
+# Specify your gem's dependencies in modpanelgen.gemspec
 gemspec
