@@ -11,13 +11,13 @@ require_relative 'modpanelgen/renderer'
 require_relative 'modpanelgen/renderer_plugin'
 
 # Built-in format plugins:
-require_relative 'modpanelgen/plugin/format/eurorack'
+require_relative 'modpanelgen/format/eurorack'
 
 # Built-in parser plugins:
-require_relative 'modpanelgen/plugin/parser/kicad_pcb'
+require_relative 'modpanelgen/parser/kicad_pcb'
 
 # Built-in renderer plugins:
-require_relative 'modpanelgen/plugin/renderer/kicad_pcb'
+require_relative 'modpanelgen/renderer/kicad_pcb'
 
 module Modpanelgen
   class Error < StandardError; end

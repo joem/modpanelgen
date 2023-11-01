@@ -83,19 +83,22 @@ module Modpanelgen
 
     def list_formats
       puts 'Available formats:'
-      puts(Modpanelgen::FormatPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      # puts(Modpanelgen::FormatPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts Modpanelgen::Format.plugins
       exit
     end
 
     def list_parsers
       puts 'Available parsers:'
-      puts(Modpanelgen::ParserPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      # puts(Modpanelgen::ParserPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts Modpanelgen::Parser.plugins
       exit
     end
 
     def list_renderers
       puts 'Available renderers:'
-      puts(Modpanelgen::RendererPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      # puts(Modpanelgen::RendererPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
+      puts Modpanelgen::Renderer.plugins
       exit
     end
 
