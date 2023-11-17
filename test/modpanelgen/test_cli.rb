@@ -4,7 +4,7 @@ require 'test_helper'
 
 describe Modpanelgen::CLI do
   it 'must respond to run' do
-    value(::Modpanelgen::CLI.new).must_respond_to 'run'
+    value(::Modpanelgen::CLI.new).must_respond_to :run
   end
 
   # it 'shows help with no args' do

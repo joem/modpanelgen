@@ -38,13 +38,13 @@ module Modpanelgen
     # 'modpanelgen-format-your_format' then `plugin_short_name` should be
     # 'your_format'.
     #
-    def search(plugin_short_name)
+    def search_plugins(plugin_short_name)
       result = nil # default return value if nothing returns by the end
 
       result = search_local_files(plugin_short_name)
       return result if result
 
-      result = search_installed_gems(plugin_short_name)
+      result = search_installed_plugins(plugin_short_name)
       return result if result
 
       result = search_loaded_plugins(plugin_short_name)
@@ -55,7 +55,7 @@ module Modpanelgen
       # TODO: Make this work!
     end
 
-    def search_installed_gems(plugin_short_name)
+    def search_installed_plugins(plugin_short_name)
       specs = Gem::Specification.find_all_by_name("#{PLUGIN_PREFIX}#{plugin_short_name.downcase}")
       # In case there are multiple versions, sort the returned array & take last item
       spec = specs.max_by(&:version)
