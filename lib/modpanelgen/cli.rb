@@ -7,7 +7,9 @@ module Modpanelgen
   # processing and sets the app in motion.
   class CLI
     def initialize
-      @options = {}
+      @options = {
+        format: 'default'
+      }
     end
 
     def run(argv)
@@ -15,6 +17,11 @@ module Modpanelgen
         argv << '--help'
       end
       parse_args(argv)
+      puts "DEBUG: Options right after parsing:" #DEBUG #FIXME
+      p @options #DEBUG #FIXME
+      @options[:format] = Modpanelgen::Format.search(@options[:format])
+      # TODO: check for and set input file, if one was given. I think it should be in argv?
+      panel = Modpanelgen::Panel.new(**@options)
     end
 
     def parse_args(argv)
@@ -83,21 +90,18 @@ module Modpanelgen
 
     def list_formats
       puts 'Available formats:'
-      # puts(Modpanelgen::FormatPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       puts Modpanelgen::Format.plugins
       exit
     end
 
     def list_parsers
       puts 'Available parsers:'
-      # puts(Modpanelgen::ParserPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       puts Modpanelgen::Parser.plugins
       exit
     end
 
     def list_renderers
       puts 'Available renderers:'
-      # puts(Modpanelgen::RendererPlugin.plugins.map { |plug| "  #{plug.to_s.split('::').last}" })
       puts Modpanelgen::Renderer.plugins
       exit
     end

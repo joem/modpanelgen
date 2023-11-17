@@ -2,13 +2,15 @@
 
 module Modpanelgen
   module Parser
+    PLUGIN_PREFIX = 'modpanelgen-parser-'
+
     module_function
 
     def plugins
       all_plugins = loaded_plugins + installed_plugins
       # Format them nicely for the list and only show the last class name
-      all_plugins.map { |plug| "  #{plug.to_s.split('::').last}" }
-      all_plugins #DEBUG
+      all_plugins.map { |plug| "  #{snake_case(plug.to_s)}" }
+      # all_plugins #DEBUG
     end
 
     def loaded_plugins
@@ -16,8 +18,30 @@ module Modpanelgen
     end
 
     def installed_plugins
-      # TODO: Make this actually check and find relevant installed plugins!
-      ["Modpanelgen::Parser::InjectedParserExample"] #DEBUG
+      # This returns an array of names like `modpanelgen-parser-your_parser`
+      specs = Gem::Specification.find_all do |spec|
+        spec.name =~ /^#{PLUGIN_PREFIX}/
+      end
+      specs.map!(&:name)
+    end
+
+    # Makes an underscored, lowercase form from the expression in the string.
+    #
+    # Changes '::' to '/' to convert namespaces to paths.
+    #
+    #   underscorecase('ActiveModel')         # => "active_model"
+    #   underscorecase('ActiveModel::Errors') # => "active_model/errors"
+    #
+    # (This method is adapted from rails/activesupport.)
+    def snake_case(camel_cased_word)
+      return camel_cased_word unless /[A-Z-]|::/.match?(camel_cased_word)
+
+      word = camel_cased_word.to_s.gsub('::', '/')
+      word.gsub!(/([A-Z\d]+)([A-Z][a-z])/, '\1_\2')
+      word.gsub!(/([a-z\d])([A-Z])/, '\1_\2')
+      word.tr!('-', '_')
+      word.downcase!
+      word
     end
   end
 end
