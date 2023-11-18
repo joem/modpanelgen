@@ -41,7 +41,7 @@ module Modpanelgen
     def search_plugins(plugin_short_name)
       result = nil # default return value if nothing returns by the end
 
-      result = search_local_files(plugin_short_name)
+      result = search_local_plugins(plugin_short_name)
       return result if result
 
       result = search_installed_plugins(plugin_short_name)
@@ -51,7 +51,7 @@ module Modpanelgen
       result
     end
 
-    def search_local_files(plugin_short_name)
+    def search_local_plugins(plugin_short_name)
       # TODO: Make this work!
     end
 
