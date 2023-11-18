@@ -3,58 +3,60 @@
 require 'test_helper'
 
 describe Modpanelgen::Format do
+  before do
+    @the_module = ::Modpanelgen::Format
+  end
+
   it 'has a #plugins method' do
-    value(::Modpanelgen::Format).must_respond_to :plugins
+    value(@the_module).must_respond_to :plugins
   end
 
   describe '#plugins' do
     it 'returns an array' do
-      value(::Modpanelgen::Format.plugins).must_be_instance_of Array
+      value(@the_module.plugins).must_be_instance_of Array
     end
   end
 
   it 'has a #loaded_plugins method' do
-    value(::Modpanelgen::Format).must_respond_to :loaded_plugins
+    value(@the_module).must_respond_to :loaded_plugins
   end
 
   describe '#loaded_plugins' do
     it 'returns an array' do
-      value(::Modpanelgen::Format.loaded_plugins).must_be_instance_of Array
+      value(@the_module.loaded_plugins).must_be_instance_of Array
     end
   end
 
   it 'has a #installed_plugins method' do
-    value(::Modpanelgen::Format).must_respond_to :installed_plugins
+    value(@the_module).must_respond_to :installed_plugins
   end
 
   describe '#installed_plugins' do
     it 'returns an array' do
-      value(::Modpanelgen::Format.installed_plugins).must_be_instance_of Array
+      value(@the_module.installed_plugins).must_be_instance_of Array
     end
   end
 
   it 'has a #search_plugins method' do
-    value(::Modpanelgen::Format).must_respond_to :search_plugins
+    value(@the_module).must_respond_to :search_plugins
+  end
+
+  it 'has a #search_local_plugins method' do
+    value(@the_module).must_respond_to :search_local_plugins
+  end
+
+  it 'has a #search_installed_plugins method' do
+    value(@the_module).must_respond_to :search_installed_plugins
   end
 
   it 'has a #search_loaded_plugins method' do
-    value(::Modpanelgen::Format).must_respond_to :search_loaded_plugins
+    value(@the_module).must_respond_to :search_loaded_plugins
   end
 
-  # it 'shows help with no args' do
-  #   _ { ::Modpanelgen::CLI.new([]).run }.must_output /Usage: modpanelgen\.rb \[options\]/, ''
-  # end
+  describe '#search_loaded_plugins' do
+    it 'returns a Modpanelgen::Format::FormatPlugin' do
+      value(@the_module.search_loaded_plugins('Eurorack')).must_be_kind_of ::Modpanelgen::FormatPlugin
+    end
+  end
 
-  # it 'shows usage given --help' do
-  #   _{ ::Modpanelgen::CLI.new.run(['--help']) }.must_output (/Usage: modpanelgen\.rb \[options\]/), ''
-  # end
-
-  # it 'shows help given --help' do
-  #   _{ ::Modpanelgen::CLI.new.run(['--help']) }.must_output (/Prints this help/), ''
-  # end
-
-  # it 'exits after showing help' do
-  #   _{ ::Modpanelgen::CLI.new.run(['--help']) }.must_raise SystemExit
-  #   # err.status.must_equal 42
-  # end
 end
