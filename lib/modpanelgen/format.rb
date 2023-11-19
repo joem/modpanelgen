@@ -8,6 +8,8 @@ module Modpanelgen
 
     module_function
 
+    # Lists all format plugins.
+    #
     def plugins
       all_plugins = loaded_plugins + installed_plugins
       # Format them nicely for the list and only show the last class name
@@ -15,10 +17,14 @@ module Modpanelgen
       # all_plugins #DEBUG
     end
 
+    # Lists all loaded ('require'd) format plugins.
+    #
     def loaded_plugins
       Modpanelgen::FormatPlugin.descendants
     end
 
+    # Lists all installed gems that are format plugins.
+    #
     def installed_plugins
       # This returns an array of names like `modpanelgen-format-your_format`
       specs = Gem::Specification.find_all do |spec|
@@ -27,7 +33,8 @@ module Modpanelgen
       specs.map!(&:name)
     end
 
-    # Searches for a format plugin based on provided +name+ and returns a new instance of it if found.
+    # Searches for a format plugin based on provided +name+ and returns a new
+    # instance of it if found, or nil if none found.
     #
     # Searches in this order:
     # 1. local files
@@ -53,16 +60,46 @@ module Modpanelgen
       search_loaded_plugins(name)
     end
 
+    # Searches local files in the cwd for a format plugin based on provided
+    # +name+ and returns a new instance of it if found, or nil if not found.
+    #
+    # The +name+ should be the end of the plugin's name,
+    # without 'modpanelgen/format/' or 'modpanelgen-format-'.
+    #
+    # So for example, if the full name of the plugin is
+    # 'modpanelgen-format-your_format' then +name+ should be
+    # 'your_format'.
+    #
     def search_local_plugins(name)
-      # TODO: Make this work!
+      # FIXME: Make this work!
     end
 
+    # Searches installed gems for a format plugin based on provided +name+ and
+    # returns a new instance of it if found, or nil if not found.
+    #
+    # The +name+ should be the end of the plugin's name,
+    # without 'modpanelgen/format/' or 'modpanelgen-format-'.
+    #
+    # So for example, if the full name of the plugin is
+    # 'modpanelgen-format-your_format' then +name+ should be
+    # 'your_format'.
+    #
     def search_installed_plugins(name)
       specs = Gem::Specification.find_all_by_name("#{PLUGIN_PREFIX}#{name.downcase}")
       # In case there are multiple versions, sort the returned array & take last item
       specs.max_by(&:version)
     end
 
+    # Searches loaded ('require'd) gems for a format plugin based on provided
+    # +name+ and returns a new instance of it if found.
+    #
+    # The +name+ should be the end of the plugin's name,
+    # without 'modpanelgen/format/' or 'modpanelgen-format-'.
+    #
+    # So for example, if the full name of the plugin is
+    # 'modpanelgen-format-your_format' then +name+ should be
+    # 'your_format'.
+    #
     def search_loaded_plugins(name)
       specs = loaded_plugins.find_all do |spec|
         spec.to_s == "#{camelcase(PLUGIN_PREFIX.gsub('-', '/'))}#{camelcase(name)}"
