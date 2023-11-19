@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Modpanelgen
+  # Namespace for format methods for dealing with format plugins.
+  #
   module Format
     PLUGIN_PREFIX = 'modpanelgen-format-'
 
@@ -25,46 +27,45 @@ module Modpanelgen
       specs.map!(&:name)
     end
 
-    # Search in this order:
+    # Searches for a format plugin based on provided +name+ and returns a new instance of it if found.
+    #
+    # Searches in this order:
     # 1. local files
     # 2. installed gems
     # 3. default/loaded plugins
     # TODO: Figure out what it returns. The name of the plugin? An new instance of the class?
     #
-    # The plugin_short_name should be the end of the plugin's name,
+    # The +name+ should be the end of the plugin's name,
     # without 'modpanelgen/format/' or 'modpanelgen-format-'.
     #
     # So for example, if the full name of the plugin is
-    # 'modpanelgen-format-your_format' then `plugin_short_name` should be
+    # 'modpanelgen-format-your_format' then +name+ should be
     # 'your_format'.
     #
-    def search_plugins(plugin_short_name)
-      result = nil # default return value if nothing returns by the end
-
-      result = search_local_plugins(plugin_short_name)
+    def search_plugins(name)
+      result = search_local_plugins(name)
       return result if result
 
-      result = search_installed_plugins(plugin_short_name)
+      result = search_installed_plugins(name)
       return result if result
 
-      result = search_loaded_plugins(plugin_short_name)
-      result
+      # If neither of those returned anything, then return this
+      search_loaded_plugins(name)
     end
 
-    def search_local_plugins(plugin_short_name)
+    def search_local_plugins(name)
       # TODO: Make this work!
     end
 
-    def search_installed_plugins(plugin_short_name)
-      specs = Gem::Specification.find_all_by_name("#{PLUGIN_PREFIX}#{plugin_short_name.downcase}")
+    def search_installed_plugins(name)
+      specs = Gem::Specification.find_all_by_name("#{PLUGIN_PREFIX}#{name.downcase}")
       # In case there are multiple versions, sort the returned array & take last item
-      spec = specs.max_by(&:version)
-      spec
+      specs.max_by(&:version)
     end
 
-    def search_loaded_plugins(plugin_short_name)
+    def search_loaded_plugins(name)
       specs = loaded_plugins.find_all do |spec|
-        spec.to_s == "#{camelcase(PLUGIN_PREFIX.gsub('-','/'))}#{camelcase(plugin_short_name)}"
+        spec.to_s == "#{camelcase(PLUGIN_PREFIX.gsub('-', '/'))}#{camelcase(name)}"
       end
       # specs.first if specs.length == 1 #DEBUG
       specs.first.new if specs.length == 1
@@ -98,9 +99,9 @@ module Modpanelgen
     # (This method is adapted from rails/activesupport.)
     def camelcase(term)
       string = term.to_s
-      string = string.sub(/^[a-z\d]*/) { |match| match.capitalize }
-      string.gsub!(/(?:_|(\/))([a-z\d]*)/i) { "#{$1}#{$2.capitalize}" }
-      string.gsub!("/", "::")
+      string = string.sub(/^[a-z\d]*/, &:capitalize)
+      string.gsub!(%r{(?:_|(/))([a-z\d]*)}i) { "#{::Regexp.last_match(1)}#{::Regexp.last_match(2).capitalize}" }
+      string.gsub!('/', '::')
       string
     end
   end
