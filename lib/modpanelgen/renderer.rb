@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Modpanelgen
+  # Namespace for renderer methods for dealing with renderer plugins.
+  #
   module Renderer
     PLUGIN_PREFIX = 'modpanelgen-renderer-'
 

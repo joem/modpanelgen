@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module Modpanelgen
+  # Namespace for parser methods for dealing with parser plugins.
+  #
   module Parser
     PLUGIN_PREFIX = 'modpanelgen-parser-'
 

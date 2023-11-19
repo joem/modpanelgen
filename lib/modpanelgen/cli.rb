@@ -17,8 +17,8 @@ module Modpanelgen
         argv << '--help'
       end
       parse_args(argv)
-      puts "DEBUG: Options right after parsing:" #DEBUG #FIXME
-      p @options #DEBUG #FIXME
+      puts 'DEBUG: Options right after parsing:' # DEBUG # FIXME
+      p @options # DEBUG # FIXME
       @options[:format] = Modpanelgen::Format.search_plugins(@options[:format])
       # TODO: check for and set input file, if one was given. I think it should be in argv?
       panel = Modpanelgen::Panel.new(**@options)
