@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+# BasePlugin is used in later modules/classes
 require_relative 'modpanelgen/base_plugin'
+# PluginHandler is used in later modules/classes
+require_relative 'modpanelgen/plugin_handler'
+
 require_relative 'modpanelgen/cli'
 require_relative 'modpanelgen/format'
 require_relative 'modpanelgen/format_plugin'
