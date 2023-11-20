@@ -12,6 +12,9 @@ module Modpanelgen
   module PluginHandler
     # Lists all plugins.
     #
+    # Returns an array of names showing only the last bit of the name, with the
+    # PLUGIN_PREFIX removed.
+    #
     def plugins
       all_plugins = loaded_plugins + installed_plugins
       # Format them nicely for the list and only show the last class name
@@ -23,15 +26,14 @@ module Modpanelgen
     # Lists all loaded ('require'd) plugins.
     #
     def loaded_plugins
-      # FIXME: Make this work with a constant from the module extending this
-      # Modpanelgen::FormatPlugin.descendants
       Object.const_get(self::PLUGIN_PREFIX_COLONS).descendants
     end
 
     # Lists all installed gems that are plugins.
     #
+    # Returns an array of names like `modpanelgen-format-your_format`
+    #
     def installed_plugins
-      # This returns an array of names like `modpanelgen-format-your_format`
       specs = Gem::Specification.find_all do |spec|
         spec.name =~ /^#{self::PLUGIN_PREFIX}/
       end
